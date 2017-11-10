@@ -17,12 +17,13 @@ class FuncionEulerExplicitoTests {
 		Assert.assertEquals(0.360, funcion.evaluar(1), 0.001);
 	}
 	
+	
 	@Test
 	void funcionEvaluaCorrectamente2() {
 		
 		FuncionEulerExplicito funcion = new FuncionEulerExplicito();
 		
-		Assert.assertEquals(0, funcion.evaluar(889.79), 0);
+		Assert.assertEquals(0, funcion.evaluar(889.79), 0.001);
 	}
 
 }

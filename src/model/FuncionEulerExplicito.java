@@ -11,7 +11,7 @@ public class FuncionEulerExplicito extends Funcion {
 	@Override
 	public double evaluar(double parametro) {
 		
-		double resultado = -0.000406*(parametro-889.79);
+		double resultado = -0.000406*(parametro-889);
 		
 		return resultado;
 	}
