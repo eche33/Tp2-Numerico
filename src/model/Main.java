@@ -40,14 +40,23 @@ public class Main {
 	    double parametro = Double.parseDouble(entradaEscaner.nextLine ());
 	    
 	    System.out.println("Resultado: "+ funcion.evaluar(parametro)+"\n");
-	*/
+	
 		FuncionPuntoA funcion = new FuncionPuntoA();
 		Euler metodo = new Euler(funcion);
 		try {
 			metodo.escribirEnExcel(20000, 29.2, 293);
 		} catch (WriteException | IOException e) {
 			e.printStackTrace();
-		}	
+		}	*/
+		
+		
+		FuncionPuntoA funcion = new FuncionPuntoA();
+		RungeKuta4 metodo = new RungeKuta4(funcion, 29.2);
+		try {
+			metodo.escribirEnExcel(20000, 29.2);
+		} catch (WriteException | IOException e) {
+			e.printStackTrace();
+		}
 	}
 		
 		
