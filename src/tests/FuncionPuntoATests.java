@@ -5,14 +5,14 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import junit.framework.Assert;
-import model.FuncionEulerExplicito;
+import model.FuncionPuntoA;
 
-class FuncionEulerExplicitoTests {
+class FuncionPuntoATests {
 
 	@Test
 	void funcionEvaluaCorrectamenteConParametrosBasicos() {
 		
-		FuncionEulerExplicito funcion = new FuncionEulerExplicito();
+		FuncionPuntoA funcion = new FuncionPuntoA();
 		
 		Assert.assertEquals(0.360, funcion.evaluar(1), 0.001);
 	}
@@ -21,7 +21,7 @@ class FuncionEulerExplicitoTests {
 	@Test
 	void funcionEvaluaCorrectamente2() {
 		
-		FuncionEulerExplicito funcion = new FuncionEulerExplicito();
+		FuncionPuntoA funcion = new FuncionPuntoA();
 		
 		Assert.assertEquals(0, funcion.evaluar(889.79), 0.001);
 	}

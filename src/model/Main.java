@@ -41,12 +41,11 @@ public class Main {
 	    
 	    System.out.println("Resultado: "+ funcion.evaluar(parametro)+"\n");
 	*/
-		FuncionEulerExplicito funcion = new FuncionEulerExplicito();
+		FuncionPuntoA funcion = new FuncionPuntoA();
 		Euler metodo = new Euler(funcion);
 		try {
 			metodo.escribirEnExcel(20000, 29.2, 293);
 		} catch (WriteException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 	}

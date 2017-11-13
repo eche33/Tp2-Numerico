@@ -5,7 +5,7 @@ package model;
  * La funcion es  -0.0000406*(T-889.79)
  */
 
-public class FuncionEulerExplicito extends Funcion {
+public class FuncionPuntoA extends Funcion {
 
 	
 	@Override
