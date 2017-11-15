@@ -47,13 +47,13 @@ public class Main {
 			metodo.escribirEnExcel(20000, 29.2, 293);
 		} catch (WriteException | IOException e) {
 			e.printStackTrace();
-		}	*/
-		
+		}	
+		*/
 		
 		FuncionPuntoA funcion = new FuncionPuntoA();
 		RungeKuta4 metodo = new RungeKuta4(funcion, 29.2);
 		try {
-			metodo.escribirEnExcel(20000, 29.2);
+			metodo.escribirEnExcel(20000, 293);
 		} catch (WriteException | IOException e) {
 			e.printStackTrace();
 		}
