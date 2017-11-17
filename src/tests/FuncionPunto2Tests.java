@@ -12,27 +12,27 @@ class FuncionPunto2Tests {
 	@Test
 	void funcionEvaluaCorrectamenteConCero() {
 		
-		FuncionPunto2 funcion = new FuncionPunto2();
+		FuncionPunto2 funcion = new FuncionPunto2(50, 0.0342, 889, 889);
 		
-		Assert.assertEquals(0.97, funcion.evaluar(0), 0.01);
+		Assert.assertEquals(0.97, funcion.evaluar(0, 700), 0.01);
 	}
 	
 	
 	@Test
 	void funcionEvaluaCorrectamenteConValorInicial() {
 		
-		FuncionPunto2 funcion = new FuncionPunto2();
+		FuncionPunto2 funcion = new FuncionPunto2(50, 0.0342, 889, 889);
 		
-		Assert.assertEquals(0, funcion.evaluar(889), 0.01);
+		Assert.assertEquals(0, funcion.evaluar(889, 700), 0.01);
 	}
 	
 	
 	@Test
 	void funcionEvaluaCorrectamenteConDiez() {
 		
-		FuncionPunto2 funcion = new FuncionPunto2();
+		FuncionPunto2 funcion = new FuncionPunto2(50, 0.0342, 889, 889);
 		
-		Assert.assertEquals(0.96, funcion.evaluar(10), 0.01);
+		Assert.assertEquals(0.96, funcion.evaluar(10, 700), 0.01);
 	}
 
 }
