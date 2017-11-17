@@ -13,7 +13,7 @@ class EulerTests {
 	@Test
 	void eulerFuncionaCorrectamenteCon1Iteracion() {
 		
-		FuncionPuntoA funcion = new FuncionPuntoA();
+		FuncionPuntoA funcion = new FuncionPuntoA(50, 0.0342, 889, 889);
 		Euler euler = new Euler(funcion);
 		
 		Assert.assertEquals(0.361, euler.aplicarMetodoParaUnPunto(0,1,1), 0.001);
@@ -23,7 +23,7 @@ class EulerTests {
 	@Test
 	void eulerFuncionaCorrectamenteCon2Iteraciones() {
 		
-		FuncionPuntoA funcion = new FuncionPuntoA();
+		FuncionPuntoA funcion = new FuncionPuntoA(50, 0.0342, 889, 200);
 		Euler euler = new Euler(funcion);
 		
 		Assert.assertEquals(0.722, euler.aplicarMetodoParaUnPunto(0,1,2), 0.001);
@@ -34,7 +34,7 @@ class EulerTests {
 	@Test
 	void eulerFuncionaCorrectamenteConDatosDeProblemaParaUnaIteracion() {
 		
-		FuncionPuntoA funcion = new FuncionPuntoA();
+		FuncionPuntoA funcion = new FuncionPuntoA(50, 0.0342, 889, 0);
 		Euler euler = new Euler(funcion);
 		
 		Assert.assertEquals(300, euler.aplicarMetodoParaUnPunto(293,29.2,1), 0.1);

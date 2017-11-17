@@ -30,7 +30,7 @@ public class Euler {
 		
 		for (int i=0; i<iteraciones; i++ ) {
 			
-			resultado = valorAnterior+(h*this.funcion.evaluar(valorAnterior));
+			resultado = valorAnterior+(h*this.funcion.evaluar(valorAnterior, h*i));
 			valorAnterior = resultado;
 			
 		}
@@ -42,7 +42,7 @@ public class Euler {
 	
 	public void escribirEnExcel(double tope, double h, double valorInicial) throws IOException, RowsExceededException, WriteException {
 		
-		String fileName = "C:\\Users\\rorro\\Downloads\\eulerExplicito.xls";
+		String fileName = "C:\\Users\\rorro\\Documents\\eulerExplicito.xls";
 		WritableWorkbook workbook = Workbook.createWorkbook(new File(fileName));
 		WritableSheet sheet = workbook.createSheet("Sheet1", 0);
 		
