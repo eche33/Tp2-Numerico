@@ -39,6 +39,7 @@ public class FuncionPunto2 extends Funcion {
 		
 		return (parteConveccion+parteRadiacion);
 		
+		
 	}
 	
 	
