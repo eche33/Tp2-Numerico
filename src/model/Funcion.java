@@ -21,7 +21,7 @@ public abstract class Funcion {
 	
 	public double determinarTemperatura(double tiempo) {
 		
-		if(this.determinarPosicion(tiempo)>this.largoTotal/2) {
+		if(this.determinarPosicion(tiempo)>(this.largoTotal)/2) {
 			
 			return this.t2;
 		}else {

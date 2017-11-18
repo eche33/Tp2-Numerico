@@ -15,11 +15,13 @@ public class RungeKuta4 {
 	
 	private Funcion funcion;
 	private double h;
+	private double[] vectorTemperaturas;
 
 	public RungeKuta4 (Funcion funcion, double paso) {
 		
 		this.funcion = funcion;
 		this.h = paso;
+		this.vectorTemperaturas = new double [51];
 	}
 	
 	
@@ -56,14 +58,14 @@ public class RungeKuta4 {
 	}
 	
 	
-	public double aplicarMetodoParaUnPunto(double valorInicial, int iteraciones) {
+	public double aplicarMetodoParaUnPunto(double valorInicial, int iteraciones, double tiempo) {
 		
 		double valorAnterior = valorInicial;
 		double resultado = 0;
 		
 		for (int i=0; i<iteraciones; i++ ) {
 			
-			double valorAuxiliar = (this.getQ1(valorAnterior,this.h*i))+(2*this.getQ2(valorAnterior,this.h*i))+(2*this.getQ3(valorAnterior,this.h*i)+this.getQ4(valorAnterior,this.h*i));
+			double valorAuxiliar = (this.getQ1(valorAnterior,tiempo))+(2*this.getQ2(valorAnterior,tiempo))+(2*this.getQ3(valorAnterior,tiempo)+this.getQ4(valorAnterior,tiempo));
 			resultado = valorAnterior+((valorAuxiliar)*1/6);
 			valorAnterior = resultado;
 			
@@ -93,10 +95,11 @@ public class RungeKuta4 {
 		for(double i=0; i<tope; i=i+this.h) {
 			
 			Number tiempoActual = new Number(0,j,i);
-			double temperatura1 = this.aplicarMetodoParaUnPunto(valorAnterior, 1);
+			double temperatura1 = this.aplicarMetodoParaUnPunto(valorAnterior, 1, i);
 			Number temperaturaActual = new Number(1,j,temperatura1);
 			
 			valorAnterior = temperatura1;
+			this.vectorTemperaturas[j-1] = temperatura1;
 			j++;
 			
 			sheet.addCell(tiempoActual);
@@ -107,6 +110,42 @@ public class RungeKuta4 {
 		workbook.write();
 		workbook.close();
 		
+		
+	}
+	
+	
+	public double calcularSoaking() {
+		
+		double temperatura = (this.vectorTemperaturas[50])-283;
+		int contador = 1;
+		double temperaturaActual = this.vectorTemperaturas[50];
+		
+		while(temperaturaActual>temperatura) {
+			
+			temperaturaActual = this.vectorTemperaturas[50-contador];
+			contador++;
+		}
+		
+		return (this.h*(contador-2));
+		
+	}
+	
+	
+	public double calcularTemperaturaPromedio() {
+		
+		double temperatura = (this.vectorTemperaturas[50])-283;
+		int contador = 1;
+		double total = this.vectorTemperaturas[50];
+		double temperaturaActual = this.vectorTemperaturas[50];
+		
+		while(temperaturaActual>temperatura) {
+			
+			temperaturaActual = this.vectorTemperaturas[50-contador];
+			total = total + temperaturaActual;
+			contador++;
+		}
+		
+		return (total/(contador-1));
 		
 	}
 	

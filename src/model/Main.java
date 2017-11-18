@@ -10,11 +10,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		FuncionPunto2 funcion = new FuncionPunto2(50, 0.0342, 889, 889);
-		Euler metodo = new Euler(funcion);
-		
+		FuncionPunto2 funcion = new FuncionPunto2(50, 0.0342, 600,952);
+		RungeKuta4 metodo = new RungeKuta4(funcion, 29.2);
+				
 		try {
-			metodo.escribirEnExcel(1461.99, 29.2, 293 );
+			metodo.escribirEnExcel(1461.99, 293 );
 		} catch (RowsExceededException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -25,6 +25,9 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		System.out.println(metodo.calcularSoaking()+"\n");
+		System.out.println(metodo.calcularTemperaturaPromedio());
 		
 	}
 		
