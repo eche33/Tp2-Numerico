@@ -58,7 +58,7 @@ public abstract class MetodoED {
 		int contador = 0;
 		double temperaturaActual = this.vectorResultados[this.iteraciones-1-contador]; 
 		
-		while(temperaturaActual>temperaturaMinima) {
+		while((temperaturaActual>temperaturaMinima)&&(contador<this.iteraciones-1)) {
 			
 			contador++;
 			temperaturaActual = this.vectorResultados[this.iteraciones-1-contador];
@@ -76,7 +76,7 @@ public abstract class MetodoED {
 		double temperaturaActual = this.vectorResultados[this.iteraciones-1-contador]; 
 		double total = 0;
 		
-		while(temperaturaActual>temperaturaMinima) {
+		while((temperaturaActual>temperaturaMinima)&&(contador<this.iteraciones-1)) {
 			
 			contador++;
 			total = total + temperaturaActual;
