@@ -34,5 +34,23 @@ class FuncionPunto2Tests {
 		
 		Assert.assertEquals(0.96, funcion.evaluar(10, 700), 0.01);
 	}
+	
+	
+	@Test
+	void funcionDeterminaTemperaturaCorrectamente() {
+		
+		FuncionPunto2 funcion = new FuncionPunto2(50, 0.0342, 889, 600);
+		
+		Assert.assertEquals(889, funcion.determinarTemperatura(700), 0.01);
+	}
+	
+	
+	@Test
+	void funcionDeterminaTemperaturaCorrectamente2() {
+		
+		FuncionPunto2 funcion = new FuncionPunto2(50, 0.0342, 889, 600);
+		
+		Assert.assertEquals(600, funcion.determinarTemperatura(750), 0.01);
+	}
 
 }
