@@ -58,30 +58,6 @@ public class RungeKuta4 extends MetodoED{
 	
 	
 
-	
-	
-	
-	/*
-	
-	
-	public double calcularTemperaturaPromedio() {
-		
-		double temperatura = (this.vectorTemperaturas[50])-283;
-		int contador = 1;
-		double total = this.vectorTemperaturas[50];
-		double temperaturaActual = this.vectorTemperaturas[50];
-		
-		while(temperaturaActual>temperatura) {
-			
-			temperaturaActual = this.vectorTemperaturas[50-contador];
-			total = total + temperaturaActual;
-			contador++;
-		}
-		
-		return (total/(contador-1));
-		
-	}*/
-
 
 	@Override
 	public void aplicarMetodo(double valorInicial) {
