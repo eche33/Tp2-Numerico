@@ -5,10 +5,10 @@ package model;
  * La funcion es  -0.000406*(T-Tinf)
  */
 
-public class FuncionPuntoA extends Funcion {
+public class FuncionPunto1 extends Funcion {
 
 	
-	public FuncionPuntoA (double largoTotal, double velocidadInicial, double t1, double t2) {
+	public FuncionPunto1 (double largoTotal, double velocidadInicial, double t1, double t2) {
 		
 		this.largoTotal = largoTotal;
 		this.velocidadInicial = velocidadInicial;

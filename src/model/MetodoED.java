@@ -21,7 +21,7 @@ public abstract class MetodoED {
 	public abstract void aplicarMetodo(double valorInicial); //Carga el vector con la info
 	
 	
-	public void escribirEnExcel(double valorInicial) throws IOException, RowsExceededException, WriteException {
+	public void escribirEnExcel() throws IOException, RowsExceededException, WriteException {
 		
 		String fileName = "C:\\Users\\rorro\\Documents\\rungeKuta4.xls";
 		WritableWorkbook workbook = Workbook.createWorkbook(new File(fileName));
@@ -34,8 +34,6 @@ public abstract class MetodoED {
 		sheet.addCell(temperatura);
 		
 		int j = 1;
-		
-		double valorAnterior = valorInicial;
 		
 		for(int i=0; i<this.iteraciones; i++) {
 			
