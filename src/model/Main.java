@@ -29,7 +29,7 @@ public class Main {
 		
 		double[] resultado = new double[2];
 		
-		resultado = sistema.calcular(784, 784, 0.5);
+		resultado = sistema.calcular(680, 940, 0.9);
 		
 		System.out.println("T1: "+resultado[0]+"\n");
 		System.out.println("T2: "+resultado[1]+"\n");
