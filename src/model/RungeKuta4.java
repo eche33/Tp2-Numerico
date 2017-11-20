@@ -11,17 +11,16 @@ import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
 
-public class RungeKuta4 {
+public class RungeKuta4 extends MetodoED{
 	
-	private Funcion funcion;
-	private double h;
-	private double[] vectorTemperaturas;
 
-	public RungeKuta4 (Funcion funcion, double paso) {
+	public RungeKuta4 (Funcion funcion, double paso, int iteraciones) {
 		
 		this.funcion = funcion;
 		this.h = paso;
-		this.vectorTemperaturas = new double [51];
+		this.iteraciones = iteraciones;
+		this.vectorResultados = new double[this.iteraciones];
+		
 	}
 	
 	
@@ -58,63 +57,11 @@ public class RungeKuta4 {
 	}
 	
 	
-	public double aplicarMetodoParaUnPunto(double valorInicial, int iteraciones, double tiempo) {
-		
-		double valorAnterior = valorInicial;
-		double resultado = 0;
-		
-		for (int i=0; i<iteraciones; i++ ) {
-			
-			double valorAuxiliar = (this.getQ1(valorAnterior,tiempo))+(2*this.getQ2(valorAnterior,tiempo))+(2*this.getQ3(valorAnterior,tiempo)+this.getQ4(valorAnterior,tiempo));
-			resultado = valorAnterior+((valorAuxiliar)*1/6);
-			valorAnterior = resultado;
-			
-		}
-		
-		return resultado;
-	}
+
 	
 	
 	
-	public void escribirEnExcel(double tope, double valorInicial) throws IOException, RowsExceededException, WriteException {
-		
-		String fileName = "C:\\Users\\rorro\\Documents\\rungeKuta4.xls";
-		WritableWorkbook workbook = Workbook.createWorkbook(new File(fileName));
-		WritableSheet sheet = workbook.createSheet("Sheet1", 0);
-		
-		Label tiempo = new Label(0,0, "Tiempo [s]");
-		sheet.addCell(tiempo);
-		
-		Label temperatura = new Label(1,0,"Temperatura [K]");
-		sheet.addCell(temperatura);
-		
-		int j = 1;
-		
-		double valorAnterior = valorInicial;
-		
-		for(double i=0; i<tope; i=i+this.h) {
-			
-			Number tiempoActual = new Number(0,j,i);
-			double temperatura1 = this.aplicarMetodoParaUnPunto(valorAnterior, 1, i);
-			Number temperaturaActual = new Number(1,j,temperatura1);
-			
-			valorAnterior = temperatura1;
-			this.vectorTemperaturas[j-1] = temperatura1;
-			j++;
-			
-			sheet.addCell(tiempoActual);
-			sheet.addCell(temperaturaActual);
-			
-		}
-		
-		workbook.write();
-		workbook.close();
-		
-		
-	}
-	
-	
-	public double calcularSoaking() {
+	/*public double calcularSoaking() {
 		
 		double temperatura = (this.vectorTemperaturas[50])-283;
 		int contador = 1;
@@ -146,6 +93,26 @@ public class RungeKuta4 {
 		}
 		
 		return (total/(contador-1));
+		
+	}*/
+
+
+	@Override
+	public void aplicarMetodo(double valorInicial) {
+		
+		double valorAnterior = valorInicial;
+		double resultado = 0;
+		
+		for (int i=0; i<this.iteraciones; i++ ) {
+			
+			double tiempo = this.h*i;
+			double valorAuxiliar = (this.getQ1(valorAnterior,tiempo))+(2*this.getQ2(valorAnterior,tiempo))+(2*this.getQ3(valorAnterior,tiempo)+this.getQ4(valorAnterior,tiempo));
+			resultado = valorAnterior+((valorAuxiliar)*1/6);
+			
+			this.vectorResultados[i] = resultado;
+			valorAnterior = resultado;
+			
+		}
 		
 	}
 	
