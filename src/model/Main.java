@@ -10,7 +10,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		FuncionPunto2 funcion = new FuncionPunto2(50, 0.0342, 889,889);
+		FuncionPunto2 funcion = new FuncionPunto2(50, 0.0342, 658,952);
 		RungeKuta4 metodo = new RungeKuta4(funcion, 29.2, 51);
 		
 		metodo.aplicarMetodo(293);
@@ -21,6 +21,9 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		System.out.println("Soaking: "+metodo.calcularSoaking()+"\n");
+		System.out.println("Tsoaking: "+metodo.calcularTemperaturaPromedio()+"\n");
 	}
 		
 		

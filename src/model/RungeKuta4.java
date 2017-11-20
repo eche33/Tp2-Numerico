@@ -61,21 +61,7 @@ public class RungeKuta4 extends MetodoED{
 	
 	
 	
-	/*public double calcularSoaking() {
-		
-		double temperatura = (this.vectorTemperaturas[50])-283;
-		int contador = 1;
-		double temperaturaActual = this.vectorTemperaturas[50];
-		
-		while(temperaturaActual>temperatura) {
-			
-			temperaturaActual = this.vectorTemperaturas[50-contador];
-			contador++;
-		}
-		
-		return (this.h*(contador-2));
-		
-	}
+	/*
 	
 	
 	public double calcularTemperaturaPromedio() {

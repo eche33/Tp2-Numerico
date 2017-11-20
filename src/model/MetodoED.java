@@ -49,7 +49,41 @@ public abstract class MetodoED {
 		
 		workbook.write();
 		workbook.close();
+	}
+	
+	
+	public double calcularSoaking() {
 		
+		double temperaturaMinima = (this.vectorResultados[this.iteraciones-1])-283; //Genero rango [Tfinal, Tfinal-10]
+		int contador = 0;
+		double temperaturaActual = this.vectorResultados[this.iteraciones-1-contador]; 
+		
+		while(temperaturaActual>temperaturaMinima) {
+			
+			contador++;
+			temperaturaActual = this.vectorResultados[this.iteraciones-1-contador];
+		}
+		
+		return (this.h*(contador-1));
+		
+	}
+	
+	
+	public double calcularTemperaturaPromedio() {
+		
+		double temperaturaMinima = (this.vectorResultados[this.iteraciones-1])-283; //Genero rango [Tfinal, Tfinal-10]
+		int contador = 0;
+		double temperaturaActual = this.vectorResultados[this.iteraciones-1-contador]; 
+		double total = 0;
+		
+		while(temperaturaActual>temperaturaMinima) {
+			
+			contador++;
+			total = total + temperaturaActual;
+			temperaturaActual = this.vectorResultados[this.iteraciones-1-contador];
+		}
+		
+		return (total/contador);
 		
 	}
 	
