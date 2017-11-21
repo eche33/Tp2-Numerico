@@ -10,18 +10,14 @@ public class SENL {
 	private double jacobiano[] [];
 	private F1 F1;
 	private F2 F2;
-	private double soakingObj;
-	private double tempObj;
 	public int iteracionesUsadas;
 	
 	
-	public SENL(double soakingObj, double tempObj) {
+	public SENL(double soakingObj, double tempObj, double largo, double velocidadInicial, double paso, int iteraciones, double tempInicial) {
 		
-		this.soakingObj = soakingObj;
-		this.tempObj = tempObj;
 		this.jacobiano = new double [2][2];
-		this.F1 = new F1(this.soakingObj);
-		this.F2 = new F2(this.tempObj);
+		this.F1 = new F1(soakingObj, largo, velocidadInicial, paso, iteraciones, tempInicial);
+		this.F2 = new F2(tempObj, largo, velocidadInicial, paso, iteraciones, tempInicial);
 		
 		this.cargarJacobiano();
 		

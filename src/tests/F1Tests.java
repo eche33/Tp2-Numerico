@@ -14,7 +14,7 @@ class F1Tests {
 	@Test
 	void F1EvaluaCorrectamente() {
 		
-		F1 funcion = new F1(600);
+		F1 funcion = new F1(600, 50, 0.0342, 29.2, 51, 293);
 		
 		Assert.assertEquals(480.4, funcion.evaluar(889,889), 0.01);
 	}

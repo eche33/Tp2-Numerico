@@ -23,7 +23,7 @@ public abstract class MetodoED {
 	
 	public void escribirEnExcel() throws IOException, RowsExceededException, WriteException {
 		
-		String fileName = "C:\\Users\\rorro\\Documents\\rungeKuta4.xls";
+		String fileName = "C:\\Users\\Rodrigo\\EDO.xls";
 		WritableWorkbook workbook = Workbook.createWorkbook(new File(fileName));
 		WritableSheet sheet = workbook.createSheet("Sheet1", 0);
 		
@@ -56,7 +56,7 @@ public abstract class MetodoED {
 		
 		double temperaturaMinima = (this.vectorResultados[this.iteraciones-1])-283; //Genero rango [Tfinal, Tfinal-10]
 		int contador = 0;
-		double temperaturaActual = this.vectorResultados[this.iteraciones-1-contador]; 
+		double temperaturaActual = this.vectorResultados[this.iteraciones-1]; 
 		
 		while((temperaturaActual>temperaturaMinima)&&(contador<this.iteraciones-1)) {
 			
@@ -73,7 +73,7 @@ public abstract class MetodoED {
 		
 		double temperaturaMinima = (this.vectorResultados[this.iteraciones-1])-283; //Genero rango [Tfinal, Tfinal-10]
 		int contador = 0;
-		double temperaturaActual = this.vectorResultados[this.iteraciones-1-contador]; 
+		double temperaturaActual = this.vectorResultados[this.iteraciones-1]; 
 		double total = 0;
 		
 		while((temperaturaActual>temperaturaMinima)&&(contador<this.iteraciones-1)) {
