@@ -104,8 +104,8 @@ public class SENL {
 			valorActual[0] = valorAnterior[0]-auxiliar[0];
 			valorActual[1] = valorAnterior[1]-auxiliar[1];
 			
-			System.out.println("T1: "+valorActual[0]+"\n");
-			System.out.println("T2: "+valorActual[1]+"\n");
+			//System.out.println("T1: "+valorActual[0]+"\n");
+			//System.out.println("T2: "+valorActual[1]+"\n");
 			
 		}
 		
