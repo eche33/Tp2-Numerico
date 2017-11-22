@@ -144,5 +144,11 @@ public class SENL {
 		}
 		
 	}
+
+
+	public int getIteraciones() {
+		
+		return this.iteracionesUsadas;
+	}
 	
 }
