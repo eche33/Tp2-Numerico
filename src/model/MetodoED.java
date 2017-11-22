@@ -23,7 +23,7 @@ public abstract class MetodoED {
 	
 	public void escribirEnExcel() throws IOException, RowsExceededException, WriteException {
 		
-		String fileName = "C:\\Users\\Rodrigo\\EDO.xls";
+		String fileName = "C:\\Users\\rorro\\Documents\\EDO.xls";
 		WritableWorkbook workbook = Workbook.createWorkbook(new File(fileName));
 		WritableSheet sheet = workbook.createSheet("Sheet1", 0);
 		

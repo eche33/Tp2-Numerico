@@ -2,8 +2,8 @@ package model;
 
 /*2x2
  * 
- * Jacobiano invertido= [-0.5  1.5]
- * 						[ 1.5  -0.5]	
+ * Jacobiano invertido= [1  0.5]
+ * 						[0.5  1]	
  */						  	
 public class SENL {
 
