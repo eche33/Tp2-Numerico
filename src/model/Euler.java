@@ -11,19 +11,22 @@ import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
 
-public class Euler {
+public class Euler extends MetodoED{
 	
 	private Funcion funcion;
 	
 	
-	public Euler(Funcion funcion) {
+	public Euler(Funcion funcion, double paso, int iteraciones) {
 		
 		this.funcion = funcion;
+		this.h = paso;
+		this.iteraciones = iteraciones;
+		this.vectorResultados = new double[this.iteraciones];
 	}
 
 
 	
-	public double aplicarMetodoParaUnPunto(double valorInicial, double h, int iteraciones) {
+	/*public double aplicarMetodoParaUnPunto(double valorInicial, double h, int iteraciones) {
 		
 		double valorAnterior = valorInicial;
 		double resultado = 0;
@@ -36,11 +39,11 @@ public class Euler {
 		}
 		
 		return resultado;
-	}
+	}*/
 	
 	
 	
-	public void escribirEnExcel(double tope, double h, double valorInicial) throws IOException, RowsExceededException, WriteException {
+	/*public void escribirEnExcel(double tope, double h, double valorInicial) throws IOException, RowsExceededException, WriteException {
 		
 		String fileName = "C:\\Users\\rorro\\Documents\\eulerExplicito.xls";
 		WritableWorkbook workbook = Workbook.createWorkbook(new File(fileName));
@@ -73,6 +76,26 @@ public class Euler {
 		workbook.write();
 		workbook.close();
 		
+		
+	}*/
+
+
+
+	@Override
+	public void aplicarMetodo(double valorInicial) {
+		
+		double valorAnterior = valorInicial;
+		double resultado = 0;
+		
+		for (int i=0; i<this.iteraciones; i++ ) {
+			
+			double tiempo = this.h*i;
+			resultado = valorAnterior+(h*this.funcion.evaluar(valorAnterior, tiempo));
+			
+			this.vectorResultados[i] = resultado;
+			valorAnterior = resultado;
+			
+		}
 		
 	}
 
